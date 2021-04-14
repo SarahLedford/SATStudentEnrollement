@@ -418,6 +418,12 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SATStudentEnrollment.DATA.EF\SATStudentEnrollment.DATA.EF.csproj">
+      <Project>{4caff4b3-2410-4f44-b039-4f6a66c7ac72}</Project>
+      <Name>SATStudentEnrollment.DATA.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
