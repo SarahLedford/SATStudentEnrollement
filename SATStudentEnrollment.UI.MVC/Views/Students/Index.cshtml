@@ -81,7 +81,8 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PhotoUrl)
+                <img src="~/Content/images/StudentImages/t_@item.PhotoUrl" />
+                @*@Html.DisplayFor(modelItem => item.PhotoUrl)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StudentStatus.SSName)

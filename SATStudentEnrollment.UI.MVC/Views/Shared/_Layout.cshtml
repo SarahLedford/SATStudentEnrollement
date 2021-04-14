@@ -17,6 +17,9 @@
                 <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(../../Content/images/logo.jpg);"></a>
                 <ul class="list-unstyled components mb-5">
                     <li>
+                        <a href="@Url.Action("Index", "Home")">Home</a>
+                    </li>
+                    <li>
                         <a href="@Url.Action("Index", "Students")">Students</a>
                     </li>
                     <li>
@@ -29,16 +32,16 @@
                         <a href="@Url.Action("Index", "ScheduledClasses")">Scheduled Classes</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "ClassStatuses")">Class Statuses</a>
-                    </li>
-                    <li>
                         <a href="@Url.Action("Index", "Courses")">Courses</a>
                     </li>
                     <li>
-                        <a href="#">About (maybe)</a>
+                        <a href="#">About (TODO (maybe))</a>
                     </li>
                     <li>
                         <a href="@Url.Action("Contact", "Home")">Contact</a>
+                    </li>
+                    <li>
+                        @Html.Partial("_LoginPartial")
                     </li>
                 </ul>
                 <div class="footer">
@@ -59,7 +62,7 @@
                         <i class="fa fa-bars"></i>
                         <span class="sr-only">Toggle Menu</span>
                     </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    @*<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -77,10 +80,10 @@
                                 <a class="nav-link" href="#">Contact</a>
                             </li>
                         </ul>
-                    </div>
+                    </div>*@
                 </div>
             </nav>
-            @RenderBody();
+            @RenderBody()
         </div>
     </div>
     <script src="~/Content/js/jquery.min.js"></script>

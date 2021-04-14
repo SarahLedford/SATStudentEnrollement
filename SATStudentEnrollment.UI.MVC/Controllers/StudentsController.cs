@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SATStudentEnrollment.DATA.EF;
+using SATStudentEnrollment.UI.MVC.Utilities;
 
 namespace SATStudentEnrollment.UI.MVC.Controllers
 {
@@ -51,10 +53,45 @@ namespace SATStudentEnrollment.UI.MVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student)
+        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student, HttpPostedFileBase studentPhoto)
         {
             if (ModelState.IsValid)
             {
+                #region File Upload
+                string file = "NoImage.png";
+
+                if (studentPhoto != null)
+                {
+                    file = studentPhoto.FileName;
+                    string ext = file.Substring(file.LastIndexOf('.'));
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+                    //check that the uploaded file ext is in our approved list of extensions
+                    //check that the file is less than 4MB, which is the default
+                    //allowed file-size by .NET
+                    if (goodExts.Contains(ext.ToLower()) && studentPhoto.ContentLength <= 4194304)
+                    {
+                        //create a new filename *using a GUID
+                        file = Guid.NewGuid() + ext;
+
+                        #region Resize Image
+                        string savePath = Server.MapPath("~/Content/images/StudentImages/");
+
+                        Image convertedImage = Image.FromStream(studentPhoto.InputStream);
+
+                        int maxImageSize = 500; //full size image width
+                        int maxThumbSize = 100; //thumbnail size image width
+
+                        imageService.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+                        #endregion
+                    }
+
+
+
+                }
+                //no matter what, update the PhotoURL with the value of the file variable
+                student.PhotoUrl = file;
+
+                #endregion
                 db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -87,10 +124,49 @@ namespace SATStudentEnrollment.UI.MVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student, HttpPostedFileBase studentPhoto)
         {
             if (ModelState.IsValid)
             {
+                #region File Upload
+                string file = student.PhotoUrl;
+
+                if (studentPhoto != null)
+                {
+                    file = student.PhotoUrl;
+
+                    string ext = file.Substring(file.LastIndexOf('.'));
+
+                    string[] goodExts = { ".jpg", ".jpeg", ".png", ".gif" };
+
+                    if (goodExts.Contains(ext.ToLower()) && studentPhoto.ContentLength <= 4194304)
+                    {
+                        file = Guid.NewGuid() + ext;
+
+                        #region resize image
+                        string savePath = Server.MapPath("~/Content/images/StudentImages/");
+
+                        //Making an object of type Image from a stream of bytes that are coming from
+                        //our HttpPosterFileBase object called bookCover
+                        //HttpPostedFileBase bookCover -> bytes -> Image -> convertedImage
+                        Image convertedImage = Image.FromStream(studentPhoto.InputStream);
+
+                        int maxImageSize = 500;
+                        int maxThumbSize = 100;
+
+                        imageService.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+                        #endregion
+
+                        if (student.PhotoUrl != null && student.PhotoUrl != "NoImage.png")
+                        {
+                            imageService.Delete(savePath, student.PhotoUrl);
+                        }
+
+                        student.PhotoUrl = file;
+                    }
+
+                }
+                #endregion
                 db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
