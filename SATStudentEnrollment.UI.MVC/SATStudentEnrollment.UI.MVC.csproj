@@ -190,6 +190,9 @@
     <Compile Include="Utilities\ImageService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="android-chrome-192x192.png" />
+    <Content Include="android-chrome-512x512.png" />
+    <Content Include="apple-touch-icon.png" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="Content\css\bootstrap\mixins\_screen-reader.css" />
@@ -204,6 +207,8 @@
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\main.js" />
     <Content Include="Content\js\popper.js" />
+    <Content Include="favicon-16x16.png" />
+    <Content Include="favicon-32x32.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -211,6 +216,12 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="_Archive\android-chrome-192x192.png" />
+    <Content Include="_Archive\android-chrome-512x512.png" />
+    <Content Include="_Archive\apple-touch-icon.png" />
+    <Content Include="_Archive\favicon-16x16.png" />
+    <Content Include="_Archive\favicon-32x32.png" />
+    <Content Include="_Archive\favicon.ico" />
     <Content Include="_Archive\sidebar-01\css\bootstrap.min.css" />
     <Content Include="_Archive\sidebar-01\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="_Archive\sidebar-01\css\bootstrap\mixins\_screen-reader.css" />
@@ -412,6 +423,7 @@
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
     <Content Include="Views\Home\EmailConfirm.cshtml" />
+    <Content Include="_Archive\site.webmanifest" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
