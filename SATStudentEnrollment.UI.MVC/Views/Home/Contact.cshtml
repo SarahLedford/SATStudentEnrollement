@@ -1,5 +1,6 @@
 ﻿@model SATStudentEnrollment.UI.MVC.Models.ContactViewModel
-@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity;
+
 
 @{
     ViewBag.Title = "Contact";
@@ -29,9 +30,9 @@
             @if (Request.IsAuthenticated)
             {
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", @value = $"{User.Identity.GetUserName()}" } })
+                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                    
                     @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
-                    @* TODO: Auto-fill email with user's email? *@
                 </div>
             }
             else

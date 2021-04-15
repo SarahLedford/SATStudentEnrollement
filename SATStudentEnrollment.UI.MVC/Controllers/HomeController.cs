@@ -3,6 +3,7 @@ using System;
 using System.Net;
 using System.Net.Mail;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace SATStudentEnrollment.UI.MVC.Controllers
 {
@@ -27,6 +28,15 @@ namespace SATStudentEnrollment.UI.MVC.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            if (Request.IsAuthenticated)
+            {
+                ContactViewModel cvmEmail = new ContactViewModel();
+                cvmEmail.EmailAddress = User.Identity.GetUserName();
+
+                return View(cvmEmail);
+            }
+
 
             return View();
         }
