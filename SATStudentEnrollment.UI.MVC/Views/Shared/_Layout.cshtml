@@ -13,14 +13,13 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @Styles.Render("~/Content/css")
-    @*<link rel="stylesheet" href="~/Content/css/style.css">*@
 </head>
 <body>
 
     <div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
             <div class="p-4 pt-5">
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="img logo rounded-circle mb-5" style="background-image: url(../../Content/images/hogwarts-crest-mariska-sari-cropped.jpg);"></a>
+                <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" class="img logo rounded-circle mb-5" style="background-image: url(../../Content/images/hogwarts-crest-mariska-sari-cropped.jpg);"></a>
                 <ul class="list-unstyled components mb-5">
                     <li>
                         <a href="@Url.Action("Index", "Home")">Home</a>
@@ -82,9 +81,6 @@
                     <i class="fa fa-bars"></i>
                     <span class="sr-only">Toggle Menu</span>
                 </button>
-                @*<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>*@
                 <div class="container-fluid hide">
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -131,18 +127,6 @@
                                 <li class="nav-item topbar hide">@Html.ActionLink("Roles Admin", "Index", "RolesAdmin", new { @class = "nav-link" })</li>
                                 <li class="nav-item topbar hide">@Html.ActionLink("Users Admin", "Index", "UsersAdmin", new { @class = "nav-link" })</li>
                             }
-                            @*<li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>*@
                         </ul>
                     </div>
                 </div>
@@ -151,10 +135,6 @@
         </div>
     </div>
     @Scripts.Render("~/bundles/scripts")
-    @*<script src="~/Content/js/jquery.min.js"></script>
-        <script src="~/Content/js/popper.js"></script>
-        <script src="~/Content/js/bootstrap.min.js"></script>
-        <script src="~/Content/js/main.js"></script>*@
 
     @RenderSection("scripts", false);
 </body>

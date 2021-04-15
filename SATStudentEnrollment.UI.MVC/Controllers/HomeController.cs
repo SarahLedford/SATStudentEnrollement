@@ -70,7 +70,7 @@ namespace SATStudentEnrollment.UI.MVC.Controllers
             catch (Exception ex)
             {
                 ViewBag.EmailMessage = $"We're sorry. Your request could not be completed at this time. Please" +
-                    $" try again later. Error Message:<br /><br />{ex.StackTrace}.";
+                    $" try again later. Error Message: {ex.StackTrace}.";
                 return View(cvm);
             }
             return View("EmailConfirm", cvm);
