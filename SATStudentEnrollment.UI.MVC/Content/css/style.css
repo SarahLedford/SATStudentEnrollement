@@ -8286,3 +8286,8 @@ a[data-toggle="collapse"] {
 
 .footer p {
   color: rgba(255, 255, 255, 0.5); }
+
+#text-area {
+    height: 200px;
+    resize: none;
+}

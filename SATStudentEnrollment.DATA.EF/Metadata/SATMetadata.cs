@@ -60,13 +60,17 @@ namespace SATStudentEnrollment.DATA.EF//.Metadata
 
         [Display(Name = "Enrollment Date")]
         [Required(ErrorMessage = "* Enrollment date is required")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime EnrollmentDate { get; set; }
     }
     #endregion
 
     #region Scheduled Class
     [MetadataType(typeof(ScheduledClassMetadata))]
-    public partial class ScheduledClass { }
+    public partial class ScheduledClass
+    {
+        public string ClassInfo { get { return $"Start Date: {Startdate:d}\nCourse Name: {CourseId}\nLocation: {Location}"; } }
+    }
 
     public class ScheduledClassMetadata
     {
