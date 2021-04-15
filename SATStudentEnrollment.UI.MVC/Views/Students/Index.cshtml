@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SATStudentEnrollment.DATA.EF.Student>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Students";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -9,7 +9,7 @@
 @if (User.IsInRole("Admin"))
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
     </p>
 }
 <table class="table">
@@ -88,11 +88,11 @@
                 @Html.DisplayFor(modelItem => item.StudentStatus.SSName)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.StudentId }, new { @class = "btn btn-primary" }) &nbsp;
                 @if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) @:|
-                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }, new { @class = "btn btn-primary" }) @:&nbsp;
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId }, new { @class = "btn btn-primary" })
                 }
             </td>
         </tr>

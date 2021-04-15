@@ -4,8 +4,17 @@
 
 <div class="jumbotron">
     <h1>Welcome to the Hogwarts student enrollment program!</h1>
-    <p class="text-center">
-        To begin, use the navigation buttons on the left.
-    </p>
+    @if (Request.IsAuthenticated)
+    {
+        <p class="text-center">
+            To begin, use the navigation buttons on the left to view and change records.
+        </p>
+    }
+    else
+    {
+        <p class="text-center">
+            To begin, please log in.
+        </p>
+    }
 </div>
 

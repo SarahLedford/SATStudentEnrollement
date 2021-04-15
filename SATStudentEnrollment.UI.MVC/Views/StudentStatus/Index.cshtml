@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SATStudentEnrollment.DATA.EF.StudentStatus>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Student Statuses";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class="btn btn-primary"})
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.SSDescription)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SSID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SSID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SSID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.SSID }, new { @class = "btn btn-primary" }) &nbsp;
+            @Html.ActionLink("Details", "Details", new { id = item.SSID }, new { @class = "btn btn-primary" }) &nbsp;
+            @Html.ActionLink("Delete", "Delete", new { id = item.SSID }, new { @class = "btn btn-primary" })
         </td>
     </tr>
 }

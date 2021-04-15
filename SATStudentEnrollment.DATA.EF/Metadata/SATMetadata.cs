@@ -182,9 +182,11 @@ namespace SATStudentEnrollment.DATA.EF//.Metadata
 
         [Required(ErrorMessage ="* Name is required")]
         [MaxLength(30, ErrorMessage ="* Must not exceed 30 characters")]
+        [Display(Name ="Student Status")]
         public string SSName { get; set; }
 
         [MaxLength(250, ErrorMessage ="* Must not exceed 250 characters")]
+        [Display(Name ="Status Description")]
         public string SSDescription { get; set; }
     }
 

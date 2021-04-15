@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SATStudentEnrollment.DATA.EF.ScheduledClass>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Scheduled Classes";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -54,12 +54,12 @@
                 @Html.DisplayFor(modelItem => item.ScheduledClassStatus.SCSName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }, new { @class = "btn btn-primary" }) &nbsp;
+                @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }, new { @class = "btn btn-primary" })
                 @if (User.IsInRole("Admin"))
                 {
-                    @:|
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })
+                    @:&nbsp;
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId }, new { @class = "btn btn-primary" })
                 }
             </td>
         </tr>

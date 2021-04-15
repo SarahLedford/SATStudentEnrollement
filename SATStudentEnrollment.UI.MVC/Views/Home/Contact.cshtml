@@ -1,4 +1,5 @@
 ﻿@model SATStudentEnrollment.UI.MVC.Models.ContactViewModel
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "Contact";
@@ -12,7 +13,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal" style="width:60%;margin:auto;">
+    <div class="form-horizontal" id="contactForm">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group row">
@@ -25,10 +26,23 @@
 
         <div class="form-group row">
             @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
-            </div>
+            @if (Request.IsAuthenticated)
+            {
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", @value = $"{User.Identity.GetUserName()}" } })
+                    @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                    @* TODO: Auto-fill email with user's email? *@
+                </div>
+            }
+            else
+            {
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                </div>
+            }
+
+
         </div>
 
         <div class="form-group row">

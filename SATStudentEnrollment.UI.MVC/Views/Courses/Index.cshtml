@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SATStudentEnrollment.DATA.EF.Course>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Courses";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add a Course", "Create", null, new { @class="btn btn-primary"})
 </p>
 <table class="table">
     <tr>
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }, new { @class = "btn btn-primary" }) &nbsp;
+            @Html.ActionLink("Details", "Details", new { id = item.CourseId }, new { @class = "btn btn-primary" }) &nbsp;
+            @Html.ActionLink("Delete", "Delete", new { id = item.CourseId }, new { @class = "btn btn-primary" })
         </td>
     </tr>
 }

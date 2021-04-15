@@ -8291,3 +8291,8 @@ a[data-toggle="collapse"] {
     height: 200px;
     resize: none;
 }
+
+#contactForm {
+    width: 60%;
+    margin: auto;
+}
