@@ -8296,3 +8296,7 @@ a[data-toggle="collapse"] {
     width: 60%;
     margin: auto;
 }
+
+.hide{
+    display:none;
+}
