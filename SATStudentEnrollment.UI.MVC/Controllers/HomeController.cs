@@ -61,7 +61,7 @@ namespace SATStudentEnrollment.UI.MVC.Controllers
             mm.ReplyToList.Add(cvm.EmailAddress);
 
             SmtpClient client = new SmtpClient("mail.sarahledford.com");
-            client.Credentials = new NetworkCredential("admin@sarahledford.com", "@Dmin123");
+            client.Credentials = new NetworkCredential("admin@sarahledford.com", "***");
 
             try
             {
