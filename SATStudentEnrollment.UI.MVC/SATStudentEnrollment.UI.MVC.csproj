@@ -202,7 +202,15 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\images\hogwarts-crest-mariska-sari-cropped.jpg" />
     <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\StudentImages\23bf33b8-7828-4870-aba3-faa4fd7cc72a.png" />
+    <Content Include="Content\images\StudentImages\2ff9fd91-7cf2-45e3-92a3-69ab10363210.jpg" />
+    <Content Include="Content\images\StudentImages\a22e86a8-3678-4be4-82b8-869a41d7f1f3.jpg" />
+    <Content Include="Content\images\StudentImages\a7e9dca0-c602-4bea-bf4b-4677a2aa6cb6.jpg" />
     <Content Include="Content\images\StudentImages\NoImage.png" />
+    <Content Include="Content\images\StudentImages\t_23bf33b8-7828-4870-aba3-faa4fd7cc72a.png" />
+    <Content Include="Content\images\StudentImages\t_2ff9fd91-7cf2-45e3-92a3-69ab10363210.jpg" />
+    <Content Include="Content\images\StudentImages\t_a22e86a8-3678-4be4-82b8-869a41d7f1f3.jpg" />
+    <Content Include="Content\images\StudentImages\t_a7e9dca0-c602-4bea-bf4b-4677a2aa6cb6.jpg" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Content\js\main.js" />

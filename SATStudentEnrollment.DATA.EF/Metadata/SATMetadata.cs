@@ -82,10 +82,12 @@ namespace SATStudentEnrollment.DATA.EF//.Metadata
 
         [Display(Name = "Start Date")]
         [Required(ErrorMessage = "* Start date is required")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime Startdate { get; set; }
 
         [Display(Name = "End Date")]
         [Required(ErrorMessage = "* End date is required")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime EndDate { get; set; }
 
         [Display(Name = "Instructor")]

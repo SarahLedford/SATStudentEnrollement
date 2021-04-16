@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+
     @Styles.Render("~/Content/css")
 </head>
 <body>
@@ -135,7 +138,7 @@
         </div>
     </div>
     @Scripts.Render("~/bundles/scripts")
-
-    @RenderSection("scripts", false);
+    <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>
