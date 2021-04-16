@@ -3,12 +3,18 @@
 }
 
 <div class="jumbotron">
-    <h1>Welcome to the Hogwarts student enrollment program!</h1>
+    <h1 class="text-center">Welcome to the Hogwarts student enrollment program!</h1>
     @if (Request.IsAuthenticated)
     {
         <p class="text-center">
             To begin, use the navigation buttons on the left to view and change records.
+            @if (User.IsInRole("Admin"))
+            {
+                <br />
+                <a href="~/Content/SAT Documentation.pdf" target="_blank">Click to download application documentation</a>
+            }
         </p>
+
     }
     else
     {
